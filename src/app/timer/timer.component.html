@@ -1,0 +1,35 @@
+<div *ngIf="visible">
+    <div *ngIf="exercises.length > 0">
+        <table class="center marginTop marginBottom">
+            <tr>
+                <td colspan="2">{{currentExercise + 1}} / {{exercises.length}}</td>
+            </tr>
+            <tr>
+                <td>Exercício: </td>
+                <td>{{exercises[currentExercise].name}}</td>
+            </tr>
+            <tr>
+                <td>Repetição: </td>
+                <td>{{currentRepetition + 1}} / {{exercises[currentExercise].repetition}}</td>
+            </tr>
+            <tr>
+                <td>Fase Atual: </td>
+                <td>{{phaseName(currentPhase)}}</td>
+            </tr>
+        </table>
+    </div>
+
+    <div>
+        <button class="buttonSpacing" (click)="start()">Iniciar</button>
+        <button class="buttonSpacing" (click)="pause()">Pausar</button>
+        <button class="buttonSpacing" (click)="restart()">Reiniciar</button>
+        <button class="buttonSpacing" (click)="next()">Próximo</button>
+    </div>
+
+    <div class="marginTop">
+        Tempo Restante: 
+        <h2>
+            {{timeLeft | number: '1.1-1'}}
+        </h2>
+    </div>
+</div>

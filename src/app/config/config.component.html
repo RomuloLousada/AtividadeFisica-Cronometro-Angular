@@ -1,0 +1,24 @@
+<div *ngIf="visible">
+    <table class="center marginTop marginBottom">
+        <tr *ngFor="let input of inputs">
+            <td>{{input.label}}:</td>
+            <td><input [type]="input.type" [(ngModel)]="input.model"></td>
+        </tr>
+    </table>
+
+    <button (click)="addExercise()">Adicionar</button>
+
+    <table class="center marginTop" cellpadding="0" cellspacing="15">
+        <tr>
+            <th *ngFor="let input of inputs">{{input.label}}</th>
+        </tr>
+        <tr *ngFor="let exercise of exercises; let i = index">
+            <td>{{exercise.name}}</td>
+            <td>{{exercise.duration}}</td>
+            <td>{{exercise.repetition}}</td>
+            <td>{{exercise.preparation}}</td>
+            <td>{{exercise.rest}}</td>
+            <td><button (click)="removeExercise(i)">X</button></td>
+        </tr>
+    </table>
+</div>

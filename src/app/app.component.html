@@ -1,0 +1,9 @@
+<div class="container">
+  <h1>Desafio</h1>
+
+  <button class="buttonSpacing" [disabled]="timerVisible" (click)="toggleComponent()">Cronômetro</button>
+  <button class="buttonSpacing" [disabled]="configVisible" (click)="toggleComponent()">Configurações</button>
+
+  <app-config [exercises]="exercises" [visible]="configVisible" *ngIf="configVisible"></app-config>
+  <app-timer [exercises]="exercises" [visible]="timerVisible"  *ngIf="timerVisible"></app-timer>
+</div>
